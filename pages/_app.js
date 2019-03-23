@@ -21,7 +21,7 @@ class MyApp extends App {
     return (
       <Container>
         <Head>
-          <title>Dating</title>
+          <title>Spreadify</title>
           <meta name="description" content="This is the description" />
         </Head>
         <Include>

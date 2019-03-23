@@ -10,12 +10,6 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
 const utils = require("./utils");
-const Schemas = require("./schemas");
-
-if (process.env.MONGODB) {
-  var populate = require("./sampleImport.js");
-  populate();
-}
 
 app.prepare().then(() => {
   const server = express();

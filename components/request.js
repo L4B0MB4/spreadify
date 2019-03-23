@@ -70,6 +70,10 @@ class Request {
   callSetUsername(query) {
     return this.callFetch("POST", "/username", query);
   }
+
+  callClickedOnItem(playlistid, itemid) {
+    return this.callFetch("POST", "/clickedOn/" + playlistid + "/" + itemid);
+  }
 }
 
 const request = new Request();

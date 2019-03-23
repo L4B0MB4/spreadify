@@ -118,6 +118,28 @@ app.prepare().then(() => {
       return res.send({ success: false, error: { message: "No playlist found" } });
     });
 
+    server.post("/api/clickedOn/:playlistID/:itemID", async (req, res) => {
+      const playlist = await DB.getByPlaylistID(req.params.playlistID, "Playlist");
+      if (playlist) {
+        const username = req.session.username;
+        const itemID = req.params.itemID;
+        for (let i = 0; i < playlist.items.length; i++) {
+          if (playlist.items[i].playlistItemID == itemID) {
+            const clicked = playlist.items[i].clicked.filter(item => item.username == username);
+            if (clicked.length == 0) playlist.items[i].clicked.push({ username });
+          }
+        }
+        try {
+          await DB.insertOrUpdateByPlaylistID(playlist, "Playlist");
+          return res.send(playlist);
+        } catch (ex) {
+          console.log(ex);
+          return res.send({ success: false, error: ex });
+        }
+      }
+      return res.send({ success: false, error: { message: "No playlist found" } });
+    });
+
     server.get("*", (req, res) => {
       return handle(req, res);
     });

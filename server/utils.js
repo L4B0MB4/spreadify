@@ -23,7 +23,6 @@ async function makeMetaRequest(url) {
   var options = {
     method: "GET",
     url: url,
-    qs: { si: "N3yHVR5HS2SfvR06ERf-ew" },
     headers: { "cache-control": "no-cache", "x-requested-with": "https://localhost" }
   };
   return new Promise((res, rej) => {
@@ -36,7 +35,7 @@ async function makeMetaRequest(url) {
 
 function getMeta(html) {
   const oldHtml = html + "";
-  const metas = ["image", "title"];
+  const metas = ["image", "title", "description"];
   const res = {};
   for (let i = 0; i < metas.length; i++) {
     const tag = metas[i];

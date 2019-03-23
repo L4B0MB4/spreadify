@@ -32,8 +32,22 @@ body {
   background: linear-gradient(135deg, rgba(30, 88, 135, 0.8) 0%, rgba(215, 40, 207, 0.8) 38%, rgba(215, 40, 207, 0.8) 50%, rgba(255, 156, 36, 0.8) 100%) no-repeat fixed;
 }
 
-.card {
-  border-radius: 6px;
+.hr-styled {
+  padding: 0;
+  border: none;
+  border-top: 2px solid #333;
+  color: #333;
+  text-align: center;
 }
+.hr-styled::after {
+  content: "OR";
+  display: inline-block;
+  position: relative;
+  top: -0.9em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
+}
+
 // 4. Import the rest of Bulma
 @import "./node_modules/bulma/bulma";

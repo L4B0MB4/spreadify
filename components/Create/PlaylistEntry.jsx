@@ -8,29 +8,25 @@ class PlaylistEntry extends Component {
   };
   render() {
     return (
-      <article className="media">
-        <figure className="media-left">
-          <p className="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/128x128.png" />
-          </p>
-        </figure>
-        <div className="media-content">
-          <div className="field">
-            <p className="control">
-              <textarea className="textarea" placeholder="Add a comment..." onChange={e => this.setState({ text: e.target.value })} />
-            </p>
-          </div>
-          <nav className="level">
-            <div className="level-right">
-              <div className="level-item">
-                <a className="button is-info" onClick={this.onSubmit}>
-                  Submit
-                </a>
-              </div>
+      <div>
+        <article className="media">
+          <div className="media-content">
+            <div className="field">
+              <p className="control">
+                <input className="input" placeholder="Add your url..." onChange={e => this.setState({ text: e.target.value })} />
+              </p>
             </div>
-          </nav>
-        </div>
-      </article>
+          </div>
+          <div className="media-right">
+            <div className="level-item">
+              <a className="button is-info" onClick={this.onSubmit}>
+                Senden
+              </a>
+            </div>
+          </div>
+        </article>
+        <br />
+      </div>
     );
   }
 
@@ -50,6 +46,7 @@ class PlaylistEntry extends Component {
         console.log(res);
       }
     }
+    this.props.onUpdate();
   };
 }
 

@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+@import "./node_modules/bulma/sass/utilities/initial-variables";
+@import url("https://fonts.googleapis.com/css?family=Bitter|Kalam");
+/*
+
+font-family: 'Bitter', serif;
+font-family: 'Kalam', cursive;
+
+*/
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+
+$info: #1e5899;
+$success: #d728cf;
+$danger: #561643;
+$black: #2e2e3a;
+$white: #fff;
+
+$primary: #ff9c24;
+$primary-invert: $white;
+
+$tabs-link-active-color: $primary;
+$tabs-link-active-border-bottom-color: $primary;
+$tabs-toggle-link-active-background-color: $primary;
+$tabs-toggle-link-active-border-color: $primary;
+
+body {
+  font-family: "Bitter", serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(30, 88, 135, 0.8) 0%, rgba(215, 40, 207, 0.8) 38%, rgba(215, 40, 207, 0.8) 50%, rgba(255, 156, 36, 0.8) 100%) no-repeat fixed;
+}
+
+.card {
+  border-radius: 6px;
+}
+// 4. Import the rest of Bulma
+@import "./node_modules/bulma/bulma";

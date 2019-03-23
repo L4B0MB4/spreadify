@@ -1,0 +1,26 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+  dating:
+    depends_on:
+      - mongo
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB: "mongodb://mongo:27017"
+      NODE_ENV: production
+    depends_on:
+      - nodejs
+  nodejs:
+    image: "nikolaik/python-nodejs:python2.7-nodejs11"

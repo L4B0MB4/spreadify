@@ -24,7 +24,7 @@ async function makeMetaRequest(url) {
     method: "GET",
     url: url,
     qs: { si: "N3yHVR5HS2SfvR06ERf-ew" },
-    headers: { "Postman-Token": "d70bc495-0f81-4923-857c-8d538032418a", "cache-control": "no-cache", "x-requested-with": "https://localhost" }
+    headers: { "cache-control": "no-cache", "x-requested-with": "https://localhost" }
   };
   return new Promise((res, rej) => {
     request(options, function(error, response, body) {

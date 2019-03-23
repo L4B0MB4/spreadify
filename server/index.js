@@ -42,9 +42,27 @@ app.prepare().then(() => {
     server.get("/static/*", (req, res) => {
       handle(req, res);
     });
+
     server.get("/", (req, res) => {
       return handle(req, res);
     });
+
+    server.post("/api/username", (req, res) => {
+      req.session.username = req.body.username;
+      res.send({ success: true });
+    });
+
+    server.get("/nousername", (req, res) => {
+      return app.render(req, res, "/index", { missingUser: true, originalUrl: req.session.originalUrl });
+    });
+
+    function authentication(req, res, next) {
+      if (req.originalUrl.includes("playlist")) req.session.originalUrl = req.originalUrl;
+      if (!req.session.username) {
+        return res.redirect("/nousername");
+      }
+      return next();
+    }
 
     server.get("/api/link", async (req, res) => {
       const uID = utils.generateID();
@@ -57,6 +75,7 @@ app.prepare().then(() => {
         res.send({ success: false, error: ex });
       }
     });
+    server.use(authentication);
 
     server.get("/playlist/:id", async (req, res) => {
       const { id } = req.params;

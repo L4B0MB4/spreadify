@@ -13,7 +13,6 @@ class Playlist extends Component {
       <div className="box">
         <PlaylistImage />
         <PlaylistEntry />
-        Playlist
         {playlist.items && playlist.items.map(item => <PlaylistItem {...item} key={item.playlistItemID} />)}
       </div>
     );

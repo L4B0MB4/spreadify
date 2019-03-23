@@ -67,6 +67,9 @@ class Request {
   callAddPlaylistItem(playlistID, data) {
     return this.callFetch("POST", "/playlist/" + playlistID + "/item", data);
   }
+  callSetUsername(query) {
+    return this.callFetch("POST", "/username", query);
+  }
 }
 
 const request = new Request();

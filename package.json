@@ -16,7 +16,7 @@
     "express-session": "^1.15.6",
     "gsap": "^1.20.4",
     "isomorphic-unfetch": "^3.0.0",
-    "metascraper": "^5.0.0",
+    "metascraper": "^5.2.0",
     "metascraper-image": "^5.0.1",
     "mongodb": "^3.1.13",
     "mongoose": "^5.7.5",

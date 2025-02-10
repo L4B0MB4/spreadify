@@ -33,7 +33,7 @@
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-stage-0": "^6.24.1",
-    "compression-webpack-plugin": "^2.0.0",
+    "compression-webpack-plugin": "^11.1.0",
     "file-loader": "^3.0.1",
     "node-sass": "^4.13.1",
     "nodemon": "^1.12.1",
